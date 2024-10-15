@@ -94,4 +94,22 @@ Accedemos desde el navegador a la dirección http://localhost:8000 y comprobamos
 7. ### Comprueba que los dos servidores 'sirven' la misma página, es decir, cuando consultamos en el navegador:
     ### http://localhost:9080
     ### http://localhost:8000
+
+![apartado7.png](images/apartado7.png)
+
 8. ### Realiza modificaciones de la página y comprueba que los dos servidores 'sirven' la misma página
+
+    Modificamos el archivo index.html en el directorio /home/anxo/damWeb con el siguiente contenido:
+
+        <html>
+            <head>
+                <title>Hola Mundo</title>
+            </head>
+            <body>
+                <h1>Hola Mundo desde dam_web2</h1>
+            </body>
+        </html>
+    
+    Comprobamos los cambios:
+    
+![apartado8.png](images/apartado8.png)
