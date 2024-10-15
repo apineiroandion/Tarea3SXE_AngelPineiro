@@ -28,8 +28,54 @@
     ```docker ps```
 ![apartado2.png](images/apartado2.png)
 3. ### Si quieres poder acceder desde el navegador de tu equipo, ¿que debes hacer?
+    Primero debemos parar y eliminar el contenedor, para poder crear otro con el puerto mapeado con el siguiente comando:
+    
+    ```docker stop dam_web1``` y ```docker rm dam_web1```
+
+    Para poder acceder desde el navegador de mi equipo, debo mapear el puerto del contenedor al puerto de mi equipo con el siguiente comando:
+
+    ```docker run -d --name dam_web1 -p 8000:80 httpd:2.4```
+
+    Comprobamos que el contenedor se ha creado correctamente con el siguiente comando:
+
+    ```docker ps```
+
+![apartado3_1.png](images/apartado3_1.png)
+
+Accedemos desde el navegador a la dirección http://localhost:8000 y comprobamos que se muestra la página de apache2.
+
+![apartado3-2.png](images/apartado3-2.png)
+
 4. ### Utiliza bind mount para que el directorio del apache2 'htdocs' esté montado un directorio que tu elijas.
+
+    Creamos un directorio en nuestro equipo con el siguiente comando:
+
+    ```mkdir /home/anxo/damWeb```
+
+    Creamos un contenedor con el directorio mapeado con el siguiente comando:
+
+    ```docker run -d --name dam_web1 -p 8000:80 -v /home/anxo/damWeb:/usr/local/apache2/htdocs httpd:2.4```
+
+    Comprobamos que el contenedor se ha creado correctamente con el siguiente comando:
+
+    ```docker ps```
+
+![apartado4.png](images/apartado4.png)
+
 5. ### Realiza un 'hola mundo' en html y comprueba que accedes desde el navegador.
+    Creamos un archivo index.html en el directorio /home/anxo/damWeb con el siguiente contenido:
+
+        <html>
+            <head>
+                <title>Hola Mundo</title>
+            </head>
+            <body>
+                <h1>Hola Mundo</h1>
+            </body>
+        </html>
+    
+
+
 6. ### Crea otro contenedor 'dam_web2' con el mismo bind mount y a otro puerto, por ejemplo 9080.
 7. ### Comprueba que los dos servidores 'sirven' la misma página, es decir, cuando consultamos en el navegador:
     ### http://localhost:9080
