@@ -73,10 +73,24 @@ Accedemos desde el navegador a la dirección http://localhost:8000 y comprobamos
                 <h1>Hola Mundo</h1>
             </body>
         </html>
-    
 
+![apartado5_1.png](images/apartado5_1.png)
+
+Accedemos desde el navegador a la dirección http://localhost:8000 y comprobamos que se muestra la página de Hola Mundo.
+
+![apartado5_2.png](images/apartado5_2.png)
 
 6. ### Crea otro contenedor 'dam_web2' con el mismo bind mount y a otro puerto, por ejemplo 9080.
+
+    Creamos un contenedor con el directorio mapeado y en otro puerto con el siguiente comando:
+
+    ```docker run -d --name dam_web2 -p 9080:80 -v /home/anxo/damWeb:/usr/local/apache2/htdocs httpd:2.4```
+
+    Comprobamos que el contenedor se ha creado correctamente con el siguiente comando:
+
+    ```docker ps```
+
+![apartado6.png](images/apartado6.png)
 7. ### Comprueba que los dos servidores 'sirven' la misma página, es decir, cuando consultamos en el navegador:
     ### http://localhost:9080
     ### http://localhost:8000
